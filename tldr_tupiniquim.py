@@ -23,13 +23,14 @@ na thread.
 """
 
 import requests,bs4
-from extraction import extraction
+
+from datatreatment import treating
 from resumomanual import resumo
 
 #'https://g1.globo.com/politica/noticia/2020/03/25/em-reuniao-sobre-coronavirus-bolsonaro-e-doria-trocam-acusacoes.ghtml'
 #https://oglobo.globo.com/brasil/na-contramao-de-bolsonaro-mourao-diz-que-posicao-do-governo-pelo-isolamento-social-24328130
 
-texttosummarize = extraction('https://g1.globo.com/politica/noticia/2020/03/25/em-reuniao-sobre-coronavirus-bolsonaro-e-doria-trocam-acusacoes.ghtml')
+texttosummarize = treating('https://g1.globo.com/politica/noticia/2020/03/25/em-reuniao-sobre-coronavirus-bolsonaro-e-doria-trocam-acusacoes.ghtml')
 summarized = str(resumo(texttosummarize))
 
 

@@ -32,6 +32,7 @@ def resumo(texto):
     idx_sentencas_importantes = nlargest(4, sentencas_importantes, sentencas_importantes.get)
 
     artigoresumido = ""
+
     for i in sorted(idx_sentencas_importantes):
         artigoresumido += sentencas[i]
 
