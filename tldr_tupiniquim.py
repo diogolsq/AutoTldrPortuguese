@@ -29,13 +29,18 @@ from resumomanual import resumo
 
 #'https://g1.globo.com/politica/noticia/2020/03/25/em-reuniao-sobre-coronavirus-bolsonaro-e-doria-trocam-acusacoes.ghtml'
 #https://oglobo.globo.com/brasil/na-contramao-de-bolsonaro-mourao-diz-que-posicao-do-governo-pelo-isolamento-social-24328130
+def summarizingPT(site):
+    texttosummarize = treating(site)
+    summarized = str(resumo(texttosummarize))
 
-texttosummarize = treating('https://g1.globo.com/politica/noticia/2020/03/25/em-reuniao-sobre-coronavirus-bolsonaro-e-doria-trocam-acusacoes.ghtml')
-summarized = str(resumo(texttosummarize))
 
+    reductionsize = 1 - (len(summarized)/len(texttosummarize))
 
-reductionsize = 1 - (len(summarized)/len(texttosummarize))
+    if reductionsize >= 0.5:
+        print(f'a reportagem original foi reduzida em em {(1 - (len(summarized)/len(texttosummarize))) * 100} % ' + '\n')
+        print(summarized)
 
-if reductionsize >= 0.5:
-    print(f'a reportagem original foi reduzida em em {(1 - (len(summarized)/len(texttosummarize))) * 100} % ' + '\n')
-    print(summarized)
+site = input('Digite a url completa da notícia que você quer resumir')
+print('aguarde um instante')
+print('bip bop')
+summarizingPT(site)
