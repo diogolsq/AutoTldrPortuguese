@@ -34,11 +34,14 @@ def extraction(site):
         time.sleep(10)
     finally:
         linktoread = browser.current_url
-        print(f'leia a reportagem integral sem eventual paywall em :  {linktoread}')
-        htmlcontent = bs4.BeautifulSoup(browser.page_source, features= 'html.parser')
-        time.sleep(2)
-        textcontent = htmlcontent.find_all('p')
-
+        if linktoread != 'https://outline.com/':
+            print(f'leia a reportagem integral sem eventual paywall em :  {linktoread}')
+            htmlcontent = bs4.BeautifulSoup(browser.page_source, features= 'html.parser')
+            time.sleep(2)
+            textcontent = htmlcontent.find_all('p')
+        else:
+            print('infelizmente essa reportagem não pode ser resumida')
+            exit()
 
         browser.quit()
         return textcontent

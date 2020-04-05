@@ -10,7 +10,7 @@ def treating(site):
 
     Getting the outbput of the extraction, simple interate over.
     """
-    textcontent = extraction(site)
+    textcontent = extraction(site) # output is a set.
 
 
     article = ""
